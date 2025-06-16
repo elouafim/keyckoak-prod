@@ -7,6 +7,7 @@ ENV KC_PROXY=edge
 ENV KC_HOSTNAME=keyckoak-prod-production.up.railway.app
 ENV KC_HOSTNAME_STRICT=true
 ENV KC_HOSTNAME_STRICT_HTTPS=true
+ENV KC_HTTP_ENABLED=true
 
 EXPOSE 8080
 
