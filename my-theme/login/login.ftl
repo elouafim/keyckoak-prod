@@ -1,4 +1,6 @@
 <#import "template.ftl" as layout>
+<link rel="stylesheet" href="login.css">
+<link rel="stylesheet" href="${url.resourcesPath}/css/custom.css">
 <@layout.registrationLayout displayInfo=social.displayInfo; section>
     <#if section = "header">
         ${msg("doLogIn")}
