@@ -20,6 +20,10 @@ ENV KC_DB_URL=jdbc:postgresql://crossover.proxy.rlwy.net:15693/keyckoak
 ENV KC_DB_USERNAME=postgres
 ENV KC_DB_PASSWORD=YzGXwKJluiuBplxNQoadSKbMIhrsoutI
 
+
+# Copie de ton thème personnalisé
+COPY my-theme /opt/keycloak/themes/my-theme
+
 # Port exposé
 EXPOSE 8080
 
