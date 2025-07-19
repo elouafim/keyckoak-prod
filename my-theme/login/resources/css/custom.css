@@ -448,3 +448,188 @@
     cursor: not-allowed;
     transform: none !important;
 }
+
+/* --- Personnalisation avancée pour le nouveau design --- */
+
+.auth-content {
+  display: flex;
+  flex-direction: row;
+  min-height: 600px;
+}
+
+.auth-form-section {
+  background: #fff;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 1 0%;
+  min-width: 320px;
+  z-index: 2;
+}
+
+.auth-visual-section {
+  position: relative;
+  min-width: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 20px 20px 0;
+  overflow: hidden;
+}
+
+.visual-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.features-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.feature-pin {
+  background: rgba(255,255,255,0.85);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.1rem;
+  margin: 1rem;
+  pointer-events: auto;
+}
+.feature-pin.top-left {
+  align-self: flex-start;
+  margin-top: 2rem;
+}
+.feature-pin.top-right {
+  align-self: flex-end;
+  margin-top: 2rem;
+  text-align: right;
+}
+.feature-pin.bottom-center {
+  align-self: center;
+  margin-bottom: 2rem;
+}
+.feature-name {
+  font-weight: 600;
+  color: var(--primary-blue);
+}
+.feature-desc, .feature-highlight, .feature-text {
+  color: var(--primary-purple);
+  font-size: 1rem;
+}
+
+/* Social buttons ronds et colorés */
+.social-btn.google-btn {
+  background: #fff;
+  border: 2px solid #ea4335;
+  color: #ea4335;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-right: 10px;
+  transition: all 0.2s;
+}
+.social-btn.google-btn:hover {
+  background: #ea4335;
+  color: #fff;
+}
+.social-btn.facebook-btn {
+  background: #fff;
+  border: 2px solid #1877f3;
+  color: #1877f3;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-right: 10px;
+  transition: all 0.2s;
+}
+.social-btn.facebook-btn:hover {
+  background: #1877f3;
+  color: #fff;
+}
+
+/* Boutons de switch formulaire */
+.link-btn {
+  background: none;
+  border: none;
+  color: var(--primary-purple);
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.link-btn:hover {
+  color: var(--primary-blue);
+}
+
+/* Modale de succès */
+#successModal .modal-content {
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+}
+#successModal .btn-primary-custom {
+  margin-top: 1rem;
+}
+
+/* Responsive amélioré */
+@media (max-width: 992px) {
+  .auth-content {
+    flex-direction: column;
+    min-height: unset;
+  }
+  .auth-visual-section {
+    min-width: 100%;
+    border-radius: 0 0 20px 20px;
+    min-height: 200px;
+    margin-bottom: 1rem;
+  }
+  .auth-form-section {
+    border-radius: 20px 20px 0 0;
+    padding: 2rem 1rem;
+  }
+}
+@media (max-width: 600px) {
+  .auth-card {
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+  }
+  .auth-form-section, .auth-visual-section {
+    padding: 1rem 0.5rem;
+    min-width: unset;
+  }
+  .feature-pin {
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+  }
+  .brand-logo {
+    max-width: 120px;
+    height: auto;
+  }
+}
+
+/* Amélioration accessibilité et focus */
+input:focus, button:focus, .link-btn:focus {
+  outline: 2px solid var(--primary-purple);
+  outline-offset: 2px;
+}
