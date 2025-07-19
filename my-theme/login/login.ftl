@@ -1,5 +1,5 @@
 <#import "template.ftl" as layout>
-<@layout.registrationLayout displayInfo=social.displayInfo displayWide=(realm.password && social.providers??); section>
+<@layout.registrationLayout displayInfo=social.displayInfo; section>
     <#if section = "header">
         ${msg("doLogIn")}
     <#elseif section = "form">
@@ -50,7 +50,6 @@
                                                 <input tabindex="1" 
                                                        class="form-control" 
                                                        id="username" 
-                                                       class="form-control" 
                                                        name="username" 
                                                        value="${(login.username!'')}" 
                                                        type="text" 
@@ -70,7 +69,6 @@
                                                 <input tabindex="2" 
                                                        class="form-control" 
                                                        id="password" 
-                                                       class="form-control" 
                                                        name="password" 
                                                        type="password" 
                                                        autocomplete="off"
