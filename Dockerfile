@@ -16,9 +16,9 @@ ENV QUARKUS_HTTP_PROXY_ADDRESS_FORWARDING=true
 
 # Configuration de la base de données PostgreSQL hébergée sur Railway
 ENV KC_DB=postgres
-ENV KC_DB_URL=jdbc:postgresql://crossover.proxy.rlwy.net:15693/keyckoak
+ENV KC_DB_URL=jdbc:postgresql://switchback.proxy.rlwy.net:58642/railway
 ENV KC_DB_USERNAME=postgres
-ENV KC_DB_PASSWORD=YzGXwKJluiuBplxNQoadSKbMIhrsoutI
+ENV KC_DB_PASSWORD=iFNynNNQMiaCKdnEVYeLhVEEMBHFXulW
 
 
 # Copie de ton thème personnalisé
