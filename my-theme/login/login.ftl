@@ -75,7 +75,7 @@
                             <h1 class="brand">
                                 <img src="${url.resourcesPath}/img/logo_sos.png" alt="SOS MON GARAGE" class="brand-logo" />
                             </h1>
-                            <h1 class="title">Connexion</h1>
+                            <h1 class="title">Connexion Vous</h1>
                         </div>
 
                         <!-- Boutons Google / Facebook -->
@@ -83,16 +83,13 @@
                         <div class="social-login text-center">
                             <div class="d-flex justify-content-center gap-3 mb-3">
                                 <#list social.providers as p>
-                                    <#if p.alias == "google">
-                                        <a href="${p.loginUrl}" class="social-btn google-btn">
-                                            <i class="fab fa-google"></i>
-                                        </a>
-                                    <#elseif p.alias == "facebook">
-                                        <a href="${p.loginUrl}" class="social-btn facebook-btn">
-                                            <i class="fab fa-facebook-f"></i>
-                                        </a>
-                                    </#if>
+                                  <#if p.alias == "google">
+                                    <a href="${p.loginUrl}" class="social-btn google-btn">
+                                    <i class="fab fa-google"></i>
+                                    </a>
+                                  </#if>
                                 </#list>
+
                             </div>
                         </div>
                         <div class="divider"><span>ou</span></div>
