@@ -6,9 +6,9 @@
 
 <style>
     .form-input {
-    border: 2px solid #ced4da !important;
-    border-radius: 2px; /* Arrondi à 2px comme demandé */
-}
+        border-radius: 10px !important;
+        border: 2px solid #ccc !important;
+    }
 
 
     .social-btn {
