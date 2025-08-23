@@ -10,7 +10,6 @@
         border: 2px solid #ccc !important;
     }
 
-
     .social-btn {
         display: flex;
         align-items: center;
@@ -57,6 +56,50 @@
     .back-home {
         margin-bottom: 15px;
     }
+
+    /* ✅ Responsive container */
+    .auth-container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 15px;
+    }
+
+    .auth-card {
+        background: #fff;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .auth-form-section {
+        padding: 30px;
+    }
+
+    .auth-visual-section {
+        min-height: 400px;
+        color: #fff;
+        position: relative;
+    }
+
+    /* ✅ Mobile */
+    @media (max-width: 767px) {
+        .auth-form-section {
+            padding: 20px;
+        }
+
+        .auth-visual-section {
+            height: 200px;
+            order: -1; /* image en haut sur mobile */
+        }
+
+        .brand-logo {
+            max-width: 150px;
+        }
+
+        .form-header h1.title {
+            font-size: 1.5rem;
+        }
+    }
 </style>
 
 <@layout.registrationLayout displayInfo=social.displayInfo; section>
@@ -67,15 +110,16 @@
 
     <div class="auth-container">
         <div class="auth-card">
-            <div class="auth-content d-flex flex-row">
-                <!-- Formulaire de connexion -->
-                <div class="auth-form-section flex-fill">
+            <div class="auth-content row g-0">
+                
+                <!-- Formulaire -->
+                <div class="auth-form-section col-12 col-md-6">
                     <div id="loginForm" class="auth-form active">
                         <div class="form-header text-center">
                             <h1 class="brand">
                                 <img src="${url.resourcesPath}/img/logo_sos.png" alt="SOS MON GARAGE" class="brand-logo" />
                             </h1>
-                            <h1 class="title">Connexion Vous</h1>
+                            <h1 class="title">Connectez-vous</h1>
                         </div>
 
                         <!-- Boutons Google / Facebook -->
@@ -85,11 +129,10 @@
                                 <#list social.providers as p>
                                   <#if p.alias == "google">
                                     <a href="${p.loginUrl}" class="social-btn google-btn">
-                                    <i class="fab fa-google"></i>
+                                      <i class="fab fa-google"></i>
                                     </a>
                                   </#if>
                                 </#list>
-
                             </div>
                         </div>
                         <div class="divider"><span>ou</span></div>
@@ -128,8 +171,9 @@
                     </div>
                 </div>
 
-                <!-- Visuel à droite -->
-                <div class="auth-visual-section flex-fill" style="background-image: url('${url.resourcesPath}/img/img2.jpg'); background-size: cover; background-position: center;">
+                <!-- Image / visuel -->
+                <div class="auth-visual-section col-12 col-md-6" 
+                     style="background-image: url('${url.resourcesPath}/img/img2.jpg'); background-size: cover; background-position: center;">
                     <div class="visual-content">
                         <div class="features-overlay">
                             <div class="feature-pin top-left">
@@ -149,11 +193,12 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
 
-    <!-- Modal d'inscription réussie (optionnel) -->
+    <!-- Modal d'inscription réussie -->
     <div class="modal fade" id="successModal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
