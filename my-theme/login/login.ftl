@@ -57,7 +57,7 @@
         margin-bottom: 15px;
     }
 
-    /* ✅ Responsive container */
+    /* ✅ Container + Card */
     .auth-container {
         max-width: 1200px;
         margin: auto;
@@ -81,23 +81,33 @@
         position: relative;
     }
 
-    /* ✅ Mobile */
+    /* ✅ Mobile fix */
     @media (max-width: 767px) {
+        .auth-container {
+            max-width: 100%;  /* pleine largeur */
+            padding: 0;       /* supprime marges */
+        }
+
+        .auth-card {
+            border-radius: 0;  /* coins droits */
+            box-shadow: none;  /* supprime ombre */
+        }
+
         .auth-form-section {
             padding: 20px;
         }
 
         .auth-visual-section {
-            height: 200px;
-            order: -1; /* image en haut sur mobile */
+            height: 250px; /* image plus grande */
+            order: -1;     /* image au-dessus */
         }
 
         .brand-logo {
-            max-width: 150px;
+            max-width: 140px;
         }
 
         .form-header h1.title {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
         }
     }
 </style>
@@ -122,7 +132,7 @@
                             <h1 class="title">Connectez-vous</h1>
                         </div>
 
-                        <!-- Boutons Google / Facebook -->
+                        <!-- Boutons Google -->
                         <#if social.providers??>
                         <div class="social-login text-center">
                             <div class="d-flex justify-content-center gap-3 mb-3">
