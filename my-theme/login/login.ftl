@@ -103,7 +103,7 @@
         }
 
         .brand-logo {
-            max-width: 140px;
+            max-width: 50px;
         }
 
         .form-header h1.title {
