@@ -161,7 +161,7 @@
     border: 2px solid #e9ecef;
     border-radius: 10px;
     background: white;
-    color: #333;
+    color: 333;
     font-weight: 600;
     transition: all 0.3s ease;
     text-decoration: none;
@@ -281,7 +281,15 @@
     }
 }
 
-/* Responsive */
+/* Success message */
+.alert-success-custom {
+    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+    border: 1px solid #b8dacc;
+    color: #155724;
+    border-radius: 10px;
+}
+
+/* Responsive existant */
 @media (max-width: 768px) {
     .auth-left {
         display: none;
@@ -292,10 +300,132 @@
     }
 }
 
-/* Success message */
-.alert-success-custom {
-    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
-    border: 1px solid #b8dacc;
-    color: #155724;
-    border-radius: 10px;
+/* NOUVELLES AMÉLIORATIONS RESPONSIVES */
+
+/* Tablettes en mode portrait */
+@media (max-width: 992px) and (min-width: 769px) {
+    .auth-left {
+        padding: 2rem;
+    }
+    
+    .auth-right {
+        padding: 2rem;
+    }
+    
+    .brand-logo {
+        font-size: 2rem;
+    }
+    
+    .car-icon {
+        font-size: 3rem;
+    }
+}
+
+/* Mobiles moyens */
+@media (max-width: 768px) {
+    .auth-container {
+        padding: 15px;
+    }
+    
+    .back-home {
+        top: 15px;
+        left: 15px;
+        font-size: 1.1rem;
+    }
+}
+
+/* Petits mobiles */
+@media (max-width: 576px) {
+    .auth-container {
+        padding: 10px;
+    }
+    
+    .auth-right {
+        padding: 1.5rem;
+    }
+    
+    .brand-logo {
+        font-size: 1.8rem;
+    }
+    
+    .btn-primary-custom, 
+    .btn-outline-custom {
+        padding: 10px 20px;
+        font-size: 15px;
+    }
+    
+    .form-control {
+        padding: 10px 12px;
+        font-size: 15px;
+    }
+    
+    .social-btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    .back-home {
+        top: 10px;
+        left: 10px;
+        font-size: 1rem;
+    }
+}
+
+/* Très petits mobiles */
+@media (max-width: 380px) {
+    .auth-right {
+        padding: 1.2rem;
+    }
+    
+    .brand-logo {
+        font-size: 1.6rem;
+    }
+    
+    .car-icon {
+        font-size: 2.8rem;
+    }
+    
+    .btn-primary-custom, 
+    .btn-outline-custom {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+    
+    .switch-form {
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+    }
+    
+    .social-login {
+        margin: 1.5rem 0;
+    }
+    
+    .divider {
+        margin: 1.5rem 0;
+    }
+}
+
+/* Orientation paysage sur mobile */
+@media (max-height: 600px) and (max-width: 768px) {
+    .auth-container {
+        align-items: flex-start;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    
+    .auth-card {
+        max-width: 500px;
+    }
+}
+
+/* Écrans très larges */
+@media (min-width: 1600px) {
+    .auth-card {
+        max-width: 1000px;
+    }
+    
+    .auth-left, 
+    .auth-right {
+        padding: 4rem;
+    }
 }

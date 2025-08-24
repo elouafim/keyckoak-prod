@@ -10,7 +10,7 @@
         <div class="auth-form-section flex-fill">
             <div class="form-header text-center">
                 <h1 class="brand">
-                    <img src="${url.resourcesPath}/img/logo_sos.png" alt="SOS MON GARAGE" class="brand-logo" />
+                    <img src="${url.resourcesPath}/img/logo.png" alt="SOS MON GARAGE" class="brand-logo" />
                 </h1>
                 <h1 class="title">Réinitialiser le mot de passe</h1>
                 <p class="text-muted">Entrez votre adresse e-mail pour recevoir un lien de réinitialisation</p>
