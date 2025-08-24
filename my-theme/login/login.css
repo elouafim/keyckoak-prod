@@ -61,10 +61,16 @@
 }
 
 .brand-logo {
-    font-size: 2.5rem;
-    font-weight: bold;
     margin-bottom: 1rem;
     max-width: 50px;
+}
+
+img.brand-logo {
+    display: block;
+    max-width: 200px;   /* taille max sur desktop */
+    width: 100%;
+    height: auto;
+    margin: 0 auto 12px; /* centré */
 }
 
 .car-icon {
