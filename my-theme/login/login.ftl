@@ -127,7 +127,7 @@
                     <div id="loginForm" class="auth-form active">
                         <div class="form-header text-center">
                             <h1 class="brand">
-                                <img src="${url.resourcesPath}/img/logo.png" alt="SOS MON GARAGE" class="brand-logo" />
+                                <img src="${url.resourcesPath}/img/logo1.png" alt="SOS MON GARAGE" class="brand-logo" />
                             </h1>
                             <h1 class="title">Connectez-vous</h1>
                         </div>
