@@ -1,11 +1,15 @@
-img, svg, video, canvas { max-width: 100%; height: auto; }
+:root {
+    --primary-blue: #004aad;
+    --primary-purple: #6c63ff;
+    --gradient: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-purple) 100%);
+}
 
 .auth-container {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: clamp(12px, 4vw, 24px);
+    padding: 20px;
 }
 
 .auth-card {
@@ -15,7 +19,6 @@ img, svg, video, canvas { max-width: 100%; height: auto; }
     overflow: hidden;
     max-width: 900px;
     width: 100%;
-    margin: 0 auto;
 }
 
 .auth-left {
@@ -54,15 +57,13 @@ img, svg, video, canvas { max-width: 100%; height: auto; }
 }
 
 .auth-right {
-    padding: clamp(18px, 4vw, 48px);
+    padding: 3rem;
 }
 
 .brand-logo {
-    display: block;
-    width: clamp(160px, 55vw, 220px); /* 160–220px selon largeur écran */
-    max-width: 100%;
-    height: auto;
-    margin: 0 auto 8px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
 }
 
 .car-icon {
@@ -77,16 +78,6 @@ img, svg, video, canvas { max-width: 100%; height: auto; }
     padding: 12px 15px;
     font-size: 16px;
     transition: all 0.3s ease;
-}
-
-.form-header .title{
-  font-size: clamp(20px, 2.5vw + 12px, 28px);
-  line-height: 1.2;
-}
-
-.submit-btn, .social-btn, .btn-primary-custom, .btn-outline-custom{ width: 100%; }
-@media (max-width: 767.98px){
-  input, select, textarea{ font-size:16px; } /* évite le zoom iOS */
 }
 
 .form-control:focus {
@@ -176,7 +167,7 @@ img, svg, video, canvas { max-width: 100%; height: auto; }
     border: 2px solid #e9ecef;
     border-radius: 10px;
     background: white;
-    color: 333;
+    color: #333;
     font-weight: 600;
     transition: all 0.3s ease;
     text-decoration: none;
@@ -262,7 +253,6 @@ img, svg, video, canvas { max-width: 100%; height: auto; }
         opacity: 0;
         transform: translateY(30px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
@@ -290,7 +280,6 @@ img, svg, video, canvas { max-width: 100%; height: auto; }
     from {
         opacity: 0;
     }
-
     to {
         opacity: 1;
     }
@@ -304,32 +293,188 @@ img, svg, video, canvas { max-width: 100%; height: auto; }
     border-radius: 10px;
 }
 
-/* 7) Section visuelle : taille raisonnable, ordre sous le formulaire */
-@media (max-width: 991.98px){
-  .auth-visual-section{
-    order: 2;                      /* formulaire d’abord, image après */
-    min-height: 220px;
-    background-position: center;
-    background-size: cover;
-  }
+/* Responsive existant */
+@media (max-width: 768px) {
+    .auth-left {
+        display: none;
+    }
+    .auth-right {
+        padding: 2rem 1.5rem;
+    }
 }
 
-/* 8) Ajustements < 768px (mobile) */
-@media (max-width: 767.98px){
-  .auth-card{
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+/* NOUVELLES AMÉLIORATIONS RESPONSIVES */
+
+/* Tablettes en mode portrait */
+@media (max-width: 992px) and (min-width: 769px) {
+    .auth-left {
+        padding: 2rem;
+    }
+    .auth-right {
+        padding: 2rem;
+    }
+    .brand-logo {
+        font-size: 2rem;
+    }
+    .car-icon {
+        font-size: 3rem;
+    }
+}
+
+/* Mobiles moyens */
+@media (max-width: 768px) {
+    .auth-container {
+        padding: 15px;
+    }
+    .back-home {
+        top: 15px;
+        left: 15px;
+        font-size: 1.1rem;
+    }
+}
+
+/* Petits mobiles */
+@media (max-width: 576px) {
+    .auth-container {
+        padding: 10px;
+    }
+    .auth-right {
+        padding: 1.5rem;
+    }
+    .brand-logo {
+        font-size: 1.8rem;
+    }
+    .btn-primary-custom, 
+    .btn-outline-custom {
+        padding: 10px 20px;
+        font-size: 15px;
+    }
+    .form-control {
+        padding: 10px 12px;
+        font-size: 15px;
+    }
+    .social-btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+    .back-home {
+        top: 10px;
+        left: 10px;
+        font-size: 1rem;
+    }
+    .divider {
+        margin: 1.5rem 0;
+    }
+    .social-login {
+        margin: 1.5rem 0;
+    }
+}
+
+/* Très petits mobiles */
+@media (max-width: 380px) {
+    .auth-right {
+        padding: 1.2rem;
+    }
+    .brand-logo {
+        font-size: 1.6rem;
+    }
+    .car-icon {
+        font-size: 2.8rem;
+    }
+    .btn-primary-custom, 
+    .btn-outline-custom {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+    .switch-form {
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+    }
+    .social-login {
+        margin: 1.2rem 0;
+    }
+    .divider {
+        margin: 1.2rem 0;
+    }
+}
+
+/* Orientation paysage sur mobile */
+@media (max-height: 600px) and (max-width: 768px) {
+    .auth-container {
+        align-items: flex-start;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    .auth-card {
+        max-width: 500px;
+    }
+}
+
+/* Écrans très larges */
+@media (min-width: 1600px) {
+    .auth-card {
+        max-width: 1000px;
+    }
+    .auth-left, 
+    .auth-right {
+        padding: 4rem;
+    }
+}
+
+/* Styles spécifiques pour l'intégration avec le HTML fourni */
+.auth-form-section {
+    padding: 3rem;
+}
+
+.auth-visual-section {
+    background: var(--gradient);
+    color: white;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
     overflow: hidden;
-  }
-  .auth-right{ padding: 20px 16px; }
-  .back-home{ position: static; display: inline-flex; margin-bottom: 12px; }
-  .form-control{ padding: 11px 12px; font-size: 16px; }
 }
 
-/* 9) Très petits écrans */
-@media (max-width: 479.98px){
-  .auth-right{ padding: 16px 12px; }
+@media (max-width: 768px) {
+    .auth-form-section {
+        padding: 2rem 1.5rem;
+    }
+    .auth-visual-section {
+        display: none;
+    }
 }
 
-/* 10) Petit fix : couleur manquante (#) dans .social-btn */
-.social-btn{ color: #333; }
+/* Ajustements pour les écrans très petits */
+@media (max-width: 380px) {
+    .auth-form-section {
+        padding: 1.2rem;
+    }
+}
+
+/* Correction pour l'image de fond */
+.auth-visual-section[style*="background-image"] {
+    background: var(--gradient) !important;
+}
+
+.auth-visual-section[style*="background-image"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: inherit;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.7;
+    z-index: 0;
+}
+
+.auth-visual-section > * {
+    position: relative;
+    z-index: 1;
+}
