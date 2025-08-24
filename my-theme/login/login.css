@@ -61,22 +61,28 @@
 }
 
 .brand-logo {
-    margin-bottom: 1rem;
-    max-width: 50px;
-}
-
-img.brand-logo {
-    display: block;
-    max-width: 200px;   /* taille max sur desktop */
-    width: 100%;
+    max-width: 180px; /* Taille réduite pour desktop */
     height: auto;
-    margin: 0 auto 12px; /* centré */
+    margin-bottom: 1.5rem;
 }
 
 .car-icon {
     font-size: 4rem;
     margin-bottom: 1.5rem;
     opacity: 0.9;
+}
+
+.form-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.form-header .title {
+    font-size: 1.8rem;
+    margin-top: 1rem;
+    color: #333;
 }
 
 .form-control {
