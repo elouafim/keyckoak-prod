@@ -69,7 +69,7 @@ body { -webkit-text-size-adjust: 100%; touch-action: manipulation; }
     /* Header */
     .login-header {
         text-align: center;
-        margin-bottom: 30px;
+        margin-bottom: 12px !important;
     }
 
     .brand-logo {
@@ -83,12 +83,13 @@ body { -webkit-text-size-adjust: 100%; touch-action: manipulation; }
         font-weight: 600;
         color: #2c3e50;
         margin: 0;
+        margin-bottom: 4px !important;
     }
 
     .login-subtitle {
         color: var(--text-muted);
         font-size: 0.95rem;
-        margin-top: 8px;
+        margin-top: 2px !important;
     }
 
     /* Bouton retour */
@@ -116,7 +117,7 @@ body { -webkit-text-size-adjust: 100%; touch-action: manipulation; }
 
     /* Connexion sociale */
     .social-login {
-        margin-bottom: 25px;
+        margin: 8px 0 10px !important;
     }
 
     .social-btn {
@@ -150,7 +151,7 @@ body { -webkit-text-size-adjust: 100%; touch-action: manipulation; }
     /* Diviseur */
     .divider {
         text-align: center;
-        margin: 25px 0;
+        margin: 10px 0 !important;
         position: relative;
     }
 
@@ -298,7 +299,7 @@ body { -webkit-text-size-adjust: 100%; touch-action: manipulation; }
 
         input, select, textarea { font-size: 16px; } /* pas de zoom iOS */
   .brand-logo { max-width: 120px; }            /* logo jamais géant */
-}
+
 
         .body {
             margin: 0;
@@ -306,16 +307,22 @@ body { -webkit-text-size-adjust: 100%; touch-action: manipulation; }
         }
 
         .login-container {
-            padding: 0;
+             padding:
+                max(20px, env(safe-area-inset-top))
+                max(16px, env(safe-area-inset-right))
+                max(24px, env(safe-area-inset-bottom))
+                max(16px, env(safe-area-inset-left));
             min-height: 100vh;
             width: 100vw;
             margin: 0;
             position: relative;
+            display: grid;
+            place-items: center;
         }
 
         .login-card {
-            padding: 20px;
-            margin: 0 14px;
+            padding: 20px 16px;
+            margin: 0;
             max-width: 520px;
             width: 100%;
             border-radius: 14px;
@@ -327,15 +334,22 @@ body { -webkit-text-size-adjust: 100%; touch-action: manipulation; }
         }
 
         .login-header {
-            margin-bottom: 25px;
+            margin-bottom: 8px !important;
         }
 
         .login-title {
             font-size: 1.5rem;
+            margin-bottom: 2px !important;
         }
+
+
+        .login-subtitle{ margin-top: 1px !important; }
+        .social-login{ margin: 6px 0 8px !important; }
+        .divider{ margin: 8px 0 !important; }
 
         .brand-logo {
             max-width: 150px;
+            margin-bottom: 12px;
         }
 
         .back-home {
