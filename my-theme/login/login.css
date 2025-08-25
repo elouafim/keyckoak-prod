@@ -1,3 +1,5 @@
+img, svg, video, canvas { max-width:100%; height:auto }
+
 :root {
     --primary-blue: #004aad;
     --primary-purple: #6c63ff;
@@ -60,24 +62,10 @@
     padding: 3rem;
 }
 
-/* ==================== OPTIMISATION DU LOGO RESPONSIF ==================== */
-
 .brand-logo {
-    /* Base: Desktop et grands écrans */
-    max-width: clamp(120px, 15vw, 180px);
-    width: auto;
+    max-width: 180px; /* Taille réduite pour desktop */
     height: auto;
-    max-height: 80px;
     margin-bottom: 1.5rem;
-    transition: all 0.3s ease;
-    object-fit: contain; /* Maintient les proportions */
-    display: block;
-}
-
-/* Optimisation selon le contexte */
-.form-header .brand-logo {
-    max-width: clamp(100px, 12vw, 160px);
-    max-height: 70px;
 }
 
 .car-icon {
@@ -93,11 +81,18 @@
     margin-bottom: 2rem;
 }
 
+.form-header .brand img.site-logo{
+  max-width:200px !important;      /* desktop */
+  width:100% !important;
+  height:auto !important;
+  display:block !important;
+  margin:0 auto 12px !important;   /* centré */
+}
+
 .form-header .title {
-    font-size: clamp(1.4rem, 4vw, 1.8rem);
+    font-size: 1.8rem;
     margin-top: 1rem;
     color: #333;
-    font-weight: 600;
 }
 
 .form-control {
@@ -170,7 +165,7 @@
     border-top: 1px solid #e9ecef;
 }
 
-.switch-btn, .link-btn {
+.switch-btn {
     background: none;
     border: none;
     color: var(--primary-purple);
@@ -180,7 +175,7 @@
     transition: all 0.3s ease;
 }
 
-.switch-btn:hover, .link-btn:hover {
+.switch-btn:hover {
     color: var(--primary-blue);
 }
 
@@ -321,6 +316,134 @@
     border-radius: 10px;
 }
 
+/* Responsive existant */
+@media (max-width: 768px) {
+    .auth-left {
+        display: none;
+    }
+    .auth-right {
+        padding: 2rem 1.5rem;
+    }
+}
+
+/* NOUVELLES AMÉLIORATIONS RESPONSIVES */
+
+/* Tablettes en mode portrait */
+@media (max-width: 992px) and (min-width: 769px) {
+    .auth-left {
+        padding: 2rem;
+    }
+    .auth-right {
+        padding: 2rem;
+    }
+    .brand-logo {
+        font-size: 2rem;
+    }
+    .car-icon {
+        font-size: 3rem;
+    }
+}
+
+/* Mobiles moyens */
+@media (max-width: 768px) {
+    .auth-container {
+        padding: 15px;
+    }
+    .back-home {
+        top: 15px;
+        left: 15px;
+        font-size: 1.1rem;
+    }
+}
+
+/* Petits mobiles */
+@media (max-width: 576px) {
+    .auth-container {
+        padding: 10px;
+    }
+    .auth-right {
+        padding: 1.5rem;
+    }
+    .brand-logo {
+        font-size: 1.8rem;
+    }
+    .btn-primary-custom, 
+    .btn-outline-custom {
+        padding: 10px 20px;
+        font-size: 15px;
+    }
+    .form-control {
+        padding: 10px 12px;
+        font-size: 15px;
+    }
+    .social-btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+    .back-home {
+        top: 10px;
+        left: 10px;
+        font-size: 1rem;
+    }
+    .divider {
+        margin: 1.5rem 0;
+    }
+    .social-login {
+        margin: 1.5rem 0;
+    }
+}
+
+/* Très petits mobiles */
+@media (max-width: 380px) {
+    .auth-right {
+        padding: 1.2rem;
+    }
+    .brand-logo {
+        font-size: 1.6rem;
+    }
+    .car-icon {
+        font-size: 2.8rem;
+    }
+    .btn-primary-custom, 
+    .btn-outline-custom {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+    .switch-form {
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+    }
+    .social-login {
+        margin: 1.2rem 0;
+    }
+    .divider {
+        margin: 1.2rem 0;
+    }
+}
+
+/* Orientation paysage sur mobile */
+@media (max-height: 600px) and (max-width: 768px) {
+    .auth-container {
+        align-items: flex-start;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    .auth-card {
+        max-width: 500px;
+    }
+}
+
+/* Écrans très larges */
+@media (min-width: 1600px) {
+    .auth-card {
+        max-width: 1000px;
+    }
+    .auth-left, 
+    .auth-right {
+        padding: 4rem;
+    }
+}
+
 /* Styles spécifiques pour l'intégration avec le HTML fourni */
 .auth-form-section {
     padding: 3rem;
@@ -337,458 +460,21 @@
     text-align: center;
     position: relative;
     overflow: hidden;
-    min-height: 500px;
 }
 
-/* Gestion des features pins pour la section visuelle */
-.visual-content {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-.features-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    pointer-events: none;
-}
-
-.feature-pin {
-    position: absolute;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
-    padding: 12px 16px;
-    color: white;
-    font-size: 0.9rem;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    pointer-events: auto;
-    transition: all 0.3s ease;
-}
-
-.feature-pin:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-2px);
-}
-
-.feature-pin.top-left {
-    top: 20px;
-    left: 20px;
-}
-
-.feature-pin.top-right {
-    top: 20px;
-    right: 20px;
-    flex-direction: column;
-    text-align: center;
-}
-
-.feature-pin.bottom-center {
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.feature-info {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.2;
-}
-
-.feature-name {
-    font-weight: 600;
-    font-size: 0.85rem;
-}
-
-.feature-desc {
-    font-size: 0.75rem;
-    opacity: 0.9;
-}
-
-.feature-highlight {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #FFD700;
-}
-
-.feature-text {
-    font-size: 0.8rem;
-    line-height: 1.1;
-    margin-top: 2px;
-}
-
-/* ==================== MEDIA QUERIES OPTIMISÉES ==================== */
-
-/* Écrans très larges (2K, 4K) */
-@media (min-width: 1920px) {
-    .auth-card {
-        max-width: 1100px;
-    }
-    .auth-left, 
-    .auth-right,
-    .auth-form-section {
-        padding: 4rem;
-    }
-    .brand-logo {
-        max-width: 200px;
-        max-height: 90px;
-    }
-    .car-icon {
-        font-size: 5rem;
-    }
-}
-
-/* Écrans XL */
-@media (min-width: 1400px) and (max-width: 1919px) {
-    .brand-logo {
-        max-width: 180px;
-        max-height: 80px;
-    }
-}
-
-/* Desktop standard */
-@media (min-width: 1200px) and (max-width: 1399px) {
-    .brand-logo {
-        max-width: 160px;
-        max-height: 75px;
-    }
-}
-
-/* Tablettes larges et petits desktops */
-@media (min-width: 992px) and (max-width: 1199px) {
-    .auth-left,
-    .auth-right,
-    .auth-form-section {
-        padding: 2.5rem;
-    }
-    .brand-logo {
-        max-width: 140px;
-        max-height: 65px;
-        margin-bottom: 1.2rem;
-    }
-    .car-icon {
-        font-size: 3.5rem;
-    }
-    .auth-visual-section {
-        min-height: 450px;
-    }
-}
-
-/* Tablettes en mode portrait */
-@media (min-width: 768px) and (max-width: 991px) {
-    .auth-container {
-        padding: 15px;
-    }
-    .auth-left,
-    .auth-right,
-    .auth-form-section {
-        padding: 2rem;
-    }
-    .brand-logo {
-        max-width: 120px;
-        max-height: 55px;
-        margin-bottom: 1rem;
-    }
-    .car-icon {
-        font-size: 3rem;
-    }
-    .form-header .title {
-        font-size: 1.6rem;
-    }
-    .auth-visual-section {
-        min-height: 400px;
-    }
-    .feature-pin {
-        padding: 10px 12px;
-        font-size: 0.8rem;
-    }
-}
-
-/* Mobiles larges et tablettes petites */
-@media (max-width: 767px) {
-    .auth-container {
-        max-width: 100%;
-        padding: 0;
-        min-height: 100vh;
-    }
-    
-    .auth-card {
-        border-radius: 0;
-        box-shadow: none;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-    }
-    
+@media (max-width: 768px) {
     .auth-form-section {
         padding: 2rem 1.5rem;
-        order: 2;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
     }
-    
-    .auth-visual-section {
-        order: 1;
-        min-height: 250px;
-        padding: 1.5rem;
-    }
-    
-    .brand-logo {
-        max-width: 100px;
-        max-height: 45px;
-        margin-bottom: 1rem;
-    }
-    
-    .form-header .title {
-        font-size: 1.5rem;
-        margin-top: 0.5rem;
-    }
-    
-    .back-home {
-        top: 15px;
-        left: 15px;
-        font-size: 1.1rem;
-    }
-    
-    .feature-pin {
-        padding: 8px 10px;
-        font-size: 0.75rem;
-    }
-    
-    .feature-pin.top-left,
-    .feature-pin.top-right {
-        top: 15px;
-    }
-    
-    .feature-pin.top-left {
-        left: 15px;
-    }
-    
-    .feature-pin.top-right {
-        right: 15px;
-    }
-    
-    .feature-pin.bottom-center {
-        bottom: 15px;
-    }
-}
-
-/* Mobiles moyens */
-@media (max-width: 576px) {
-    .auth-form-section {
-        padding: 1.5rem 1.2rem;
-    }
-    
-    .brand-logo {
-        max-width: 90px;
-        max-height: 40px;
-        margin-bottom: 0.8rem;
-    }
-    
-    .form-header .title {
-        font-size: 1.4rem;
-    }
-    
-    .btn-primary-custom, 
-    .btn-outline-custom {
-        padding: 10px 20px;
-        font-size: 15px;
-    }
-    
-    .form-control {
-        padding: 10px 12px;
-        font-size: 15px;
-    }
-    
-    .social-btn {
-        padding: 10px;
-        font-size: 14px;
-    }
-    
-    .back-home {
-        top: 12px;
-        left: 12px;
-        font-size: 1rem;
-    }
-    
-    .divider {
-        margin: 1.5rem 0;
-    }
-    
-    .social-login {
-        margin: 1.5rem 0;
-    }
-    
-    .auth-visual-section {
-        min-height: 220px;
-        padding: 1.2rem;
-    }
-    
-    .feature-pin {
-        padding: 6px 8px;
-        font-size: 0.7rem;
-    }
-}
-
-/* Petits mobiles */
-@media (max-width: 480px) {
-    .auth-form-section {
-        padding: 1.2rem 1rem;
-    }
-    
-    .brand-logo {
-        max-width: 80px;
-        max-height: 35px;
-        margin-bottom: 0.6rem;
-    }
-    
-    .form-header .title {
-        font-size: 1.3rem;
-    }
-    
-    .btn-primary-custom, 
-    .btn-outline-custom {
-        padding: 8px 16px;
-        font-size: 14px;
-    }
-    
-    .switch-form {
-        margin-top: 1.5rem;
-        padding-top: 1.5rem;
-        font-size: 0.9rem;
-    }
-    
-    .social-login {
-        margin: 1.2rem 0;
-    }
-    
-    .divider {
-        margin: 1.2rem 0;
-    }
-    
-    .auth-visual-section {
-        min-height: 200px;
-        padding: 1rem;
-    }
-    
-    .feature-pin {
-        padding: 5px 7px;
-        font-size: 0.65rem;
-        border-radius: 8px;
-    }
-    
-    .feature-pin.top-left,
-    .feature-pin.top-right {
-        top: 10px;
-    }
-    
-    .feature-pin.top-left {
-        left: 10px;
-    }
-    
-    .feature-pin.top-right {
-        right: 10px;
-    }
-    
-    .feature-pin.bottom-center {
-        bottom: 10px;
-    }
-}
-
-/* Très petits mobiles */
-@media (max-width: 380px) {
-    .auth-form-section {
-        padding: 1rem 0.8rem;
-    }
-    
-    .brand-logo {
-        max-width: 70px;
-        max-height: 30px;
-        margin-bottom: 0.5rem;
-    }
-    
-    .form-header .title {
-        font-size: 1.2rem;
-    }
-    
-    .car-icon {
-        font-size: 2.5rem;
-    }
-    
-    .btn-primary-custom, 
-    .btn-outline-custom {
-        padding: 7px 14px;
-        font-size: 13px;
-    }
-    
-    .form-control {
-        padding: 8px 10px;
-        font-size: 14px;
-    }
-    
-    .back-home {
-        top: 8px;
-        left: 8px;
-        font-size: 0.9rem;
-    }
-    
-    .auth-visual-section {
-        min-height: 180px;
-        padding: 0.8rem;
-    }
-}
-
-/* Orientation paysage sur mobile */
-@media (max-height: 600px) and (max-width: 768px) and (orientation: landscape) {
-    .auth-container {
-        align-items: flex-start;
-        padding-top: 20px;
-        padding-bottom: 20px;
-    }
-    
-    .auth-card {
-        max-width: 600px;
-        height: auto;
-        min-height: auto;
-    }
-    
     .auth-visual-section {
         display: none;
     }
-    
+}
+
+/* Ajustements pour les écrans très petits */
+@media (max-width: 380px) {
     .auth-form-section {
-        order: 1;
-        padding: 1.5rem;
-    }
-    
-    .brand-logo {
-        max-width: 80px;
-        max-height: 30px;
-        margin-bottom: 0.5rem;
-    }
-    
-    .form-header .title {
-        font-size: 1.3rem;
-        margin-top: 0.3rem;
-    }
-    
-    .social-login,
-    .divider {
-        margin: 1rem 0;
-    }
-    
-    .switch-form {
-        margin-top: 1rem;
-        padding-top: 1rem;
+        padding: 1.2rem;
     }
 }
 
@@ -814,75 +500,4 @@
 .auth-visual-section > * {
     position: relative;
     z-index: 1;
-}
-
-/* Support pour les écrans haute résolution */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .brand-logo {
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: crisp-edges;
-    }
-}
-
-/* Mode sombre automatique pour les utilisateurs qui l'ont activé */
-@media (prefers-color-scheme: dark) {
-    .auth-card {
-        background: #1a1a1a;
-        color: #fff;
-    }
-    
-    .form-control {
-        background: #2d2d2d;
-        border-color: #404040;
-        color: #fff;
-    }
-    
-    .form-control:focus {
-        border-color: var(--primary-purple);
-        background: #333;
-    }
-}
-
-/* Amélioration de l'accessibilité */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-    
-    .auth-card {
-        animation: none;
-    }
-    
-    .auth-form.active {
-        animation: none;
-    }
-}
-
-/* Focus visible amélioré pour l'accessibilité */
-.brand-logo:focus,
-.btn-primary-custom:focus,
-.btn-outline-custom:focus,
-.form-control:focus,
-.social-btn:focus,
-.link-btn:focus {
-    outline: 2px solid var(--primary-blue);
-    outline-offset: 2px;
-}
-
-/* Amélioration pour les écrans tactiles */
-@media (hover: none) and (pointer: coarse) {
-    .btn-primary-custom:hover,
-    .btn-outline-custom:hover,
-    .social-btn:hover,
-    .feature-pin:hover {
-        transform: none;
-    }
-    
-    .btn-primary-custom:active,
-    .btn-outline-custom:active,
-    .social-btn:active {
-        transform: scale(0.98);
-    }
 }
