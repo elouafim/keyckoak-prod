@@ -125,17 +125,14 @@
                 <!-- Formulaire -->
                 <div class="auth-form-section col-12 col-md-6">
                     <div id="loginForm" class="auth-form active">
-                        <div class="form-header text-center">
-                            <h1 class="form-header brand">
-                            <img
-                                src="${url.resourcesPath}/img/logo.png"
-                                alt="SOS MON GARAGE"
-                                class="site-logo"                           <!-- ← nouveau nom de classe -->
-                                style="max-width:200px;width:100%;height:auto;display:block;margin:0 auto 12px;" />
-                            </h1>
-
-                            <h1 class="title">Connectez-vous</h1>
-                        </div>
+<div class="form-header text-center">
+  <h1 class="brand">
+    <img src="${url.resourcesPath}/img/logo.png"
+         alt="SOS MON GARAGE"
+         class="site-logo">
+  </h1>
+  <h1 class="title">Connectez-vous</h1>
+</div>
 
                         <!-- Boutons Google -->
                         <#if social.providers??>
