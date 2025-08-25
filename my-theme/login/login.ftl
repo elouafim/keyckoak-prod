@@ -580,10 +580,7 @@ body { -webkit-text-size-adjust: 100%; touch-action: manipulation; }
             <i class="fas fa-headset"></i>
             Support 24h/24
         </div>
-        <div class="floating-pill pill-5">
-            <i class="fas fa-mobile-alt"></i>
-            Application mobile
-        </div>
+
     </div>
 
     <div class="login-container">
