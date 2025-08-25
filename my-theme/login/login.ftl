@@ -20,6 +20,9 @@
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         min-height: 100vh;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
     }
 
     /* Container principal */
@@ -29,6 +32,9 @@
         align-items: center;
         justify-content: center;
         padding: 20px;
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     /* Carte de connexion */
@@ -40,6 +46,8 @@
         width: 100%;
         max-width: 450px;
         transition: all 0.3s ease;
+        position: relative;
+        z-index: 10;
     }
 
     .login-card:hover {
@@ -275,14 +283,22 @@
     /* Responsive Design */
     @media (max-width: 768px) {
         .login-container {
-            padding: 10px;
+            padding: 0;
             min-height: 100vh;
+            width: 100vw;
+            margin: 0;
         }
 
         .login-card {
             padding: 30px 20px;
-            margin: 10px;
+            margin: 0;
             max-width: 100%;
+            width: 100%;
+            border-radius: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .login-title {
@@ -294,11 +310,12 @@
         }
 
         .back-home {
-            position: relative;
-            top: auto;
-            left: auto;
-            margin-bottom: 20px;
-            display: inline-block;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            margin-bottom: 0;
+            padding: 8px 15px;
+            font-size: 0.85rem;
         }
 
         .form-options {
@@ -321,6 +338,7 @@
     @media (max-width: 480px) {
         .login-card {
             padding: 25px 15px;
+            width: 100vw;
         }
 
         .login-title {
@@ -335,6 +353,13 @@
         .submit-btn {
             padding: 12px;
             font-size: 0.95rem;
+        }
+
+        .back-home {
+            padding: 6px 12px;
+            font-size: 0.8rem;
+            top: 10px;
+            left: 10px;
         }
     }
 
@@ -353,10 +378,116 @@
     .login-card {
         animation: fadeInUp 0.6s ease-out;
     }
+
+    /* Conteneurs flottants animés */
+    .floating-features {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .floating-pill {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 50px;
+        padding: 12px 20px;
+        color: white;
+        font-size: 0.85rem;
+        font-weight: 500;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        animation: float 6s ease-in-out infinite;
+    }
+
+    .floating-pill i {
+        margin-right: 8px;
+        font-size: 1rem;
+    }
+
+    .pill-1 {
+        top: 15%;
+        left: 10%;
+        animation-delay: 0s;
+    }
+
+    .pill-2 {
+        top: 25%;
+        right: 15%;
+        animation-delay: 2s;
+    }
+
+    .pill-3 {
+        bottom: 20%;
+        left: 8%;
+        animation-delay: 4s;
+    }
+
+    .pill-4 {
+        bottom: 35%;
+        right: 12%;
+        animation-delay: 1s;
+    }
+
+    .pill-5 {
+        top: 45%;
+        left: 5%;
+        animation-delay: 3s;
+    }
+
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0px) rotate(0deg);
+            opacity: 0.7;
+        }
+        25% {
+            transform: translateY(-20px) rotate(1deg);
+            opacity: 0.9;
+        }
+        50% {
+            transform: translateY(-10px) rotate(-1deg);
+            opacity: 1;
+        }
+        75% {
+            transform: translateY(-15px) rotate(0.5deg);
+            opacity: 0.8;
+        }
+    }
+
+    /* Masquer les pills sur mobile */
+    @media (max-width: 768px) {
+        .floating-features {
+            display: none;
+        }
+    }
 </style>
 
 <@layout.registrationLayout displayInfo=social.displayInfo; section>
 <#if section = "form">
+    <!-- Conteneurs flottants animés -->
+    <div class="floating-features">
+        <div class="floating-pill pill-1">
+            <i class="fas fa-clock"></i>
+            Déclaration en 5 minutes
+        </div>
+        <div class="floating-pill pill-2">
+            <i class="fas fa-shield-alt"></i>
+            100% sécurisé
+        </div>
+        <div class="floating-pill pill-3">
+            <i class="fas fa-chart-line"></i>
+            Suivi en temps réel
+        </div>
+        <div class="floating-pill pill-4">
+            <i class="fas fa-headset"></i>
+            Support 24h/24
+        </div>
+    </div>
+
     <div class="login-container">
         <a href="https://sosgarage-production-967f.up.railway.app" class="back-home">
             <i class="fas fa-arrow-left me-2"></i>Retour à l'accueil
@@ -365,7 +496,7 @@
         <div class="login-card">
             <!-- Header -->
             <div class="login-header">
-                <img src="${url.resourcesPath}/img/logo_sos.png" alt="SOS MON GARAGE" class="brand-logo" />
+                <img src="${url.resourcesPath}/img/logo.png" alt="SOS MON GARAGE" class="brand-logo" />
                 <h1 class="login-title">Bienvenue</h1>
                 <p class="login-subtitle">Connectez-vous à votre compte</p>
             </div>
@@ -386,11 +517,6 @@
                       <#if p.alias == "google">
                         <a href="${p.loginUrl}" class="social-btn google-btn" title="Se connecter avec Google">
                           <i class="fab fa-google"></i>
-                        </a>
-                      </#if>
-                      <#if p.alias == "facebook">
-                        <a href="${p.loginUrl}" class="social-btn facebook-btn" title="Se connecter avec Facebook">
-                          <i class="fab fa-facebook-f"></i>
                         </a>
                       </#if>
                     </#list>
