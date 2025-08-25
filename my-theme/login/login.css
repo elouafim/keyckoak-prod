@@ -1,120 +1,339 @@
-/* ========= Variables basiques (tu peux garder tes couleurs) ========= */
-:root{
-  --primary-blue:#004aad;
-  --primary-purple:#6c63ff;
-  --gradient:linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-purple) 100%);
-  --card-shadow:0 20px 60px rgba(0,0,0,.18);
+:root {
+    --primary-blue: #004aad;
+    --primary-purple: #6c63ff;
+    --gradient: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-purple) 100%);
 }
 
-/* ========= Sécurités globales ========= */
-img,svg,video,canvas{max-width:100%;height:auto}
-*{box-sizing:border-box}
-
-/* ========= Bandeau haut ========= */
-.sg-topbar{ padding:16px 0 }
-.sg-back{ background:var(--gradient); border:none; }
-.sg-back:hover{ filter:brightness(.95) }
-
-/* ========= Wrapper & carte ========= */
-.sg-auth{
-  min-height:100dvh;                   /* gère iOS/Android */
-  display:grid; place-items:center;    /* centre la carte */
-  padding:clamp(12px,4vw,24px);
-  background:linear-gradient(180deg,#f6f8ff 0%, #eef2ff 100%);
-}
-.sg-card{
-  width:100%;
-  max-width:900px;
-  background:#fff;
-  border-radius:20px;
-  overflow:hidden;
-  box-shadow:var(--card-shadow);
+/* Reset de base */
+* {
+    box-sizing: border-box;
 }
 
-/* ========= Colonne formulaire ========= */
-.sg-form{
-  padding:clamp(20px,4vw,48px);
-}
-.sg-header{ margin-bottom:12px }
-.sg-brand{ display:flex; justify-content:center; }
-.sg-logo{
-  display:block;
-  width:100%;
-  max-width:200px;      /* desktop */
-  height:auto;
-  margin:0 auto 8px;
-}
-.sg-title{
-  font-size:clamp(22px,2.2vw + 10px,32px);
-  line-height:1.2;
-  margin:0 0 8px;
+img {
+    max-width: 100%;
+    height: auto;
 }
 
-/* Inputs / bouton */
-.sg-input{
-  border:2px solid #e9ecef;
-  border-radius:10px;
-  padding:12px 14px;
-  font-size:16px;
-  transition:border-color .2s, box-shadow .2s;
-}
-.sg-input:focus{
-  border-color:var(--primary-blue);
-  box-shadow:0 0 0 .2rem rgba(0,74,173,.18);
-}
-.sg-submit{
-  background:var(--gradient);
-  border:none;
-  padding:12px 18px;
-  font-weight:700;
-}
-.sg-submit:hover{ filter:brightness(.97) }
-
-/* Liens */
-.sg-link{ color:var(--primary-purple); font-weight:600; text-decoration:underline }
-.sg-link:hover{ color:var(--primary-blue) }
-.sg-link--muted{ color:#6c757d; text-decoration:none }
-.sg-link--muted:hover{ color:var(--primary-blue); text-decoration:underline }
-
-/* Social */
-.sg-social{ margin:1.25rem 0 }
-.sg-social-btn{
-  display:flex; align-items:center; justify-content:center;
-  width:46px; height:46px; border-radius:50%;
-  font-size:18px; color:#fff; text-decoration:none;
-}
-.sg-social-btn--google{ background:#db4437 }
-.sg-divider{ position:relative; text-align:center; margin:1.25rem 0 }
-.sg-divider::before{ content:""; position:absolute; left:0; right:0; top:50%; height:1px; background:#e9ecef }
-.sg-divider span{ position:relative; background:#fff; padding:0 10px; color:#6c757d; font-size:14px }
-
-/* Petit bloc sous le bouton */
-.sg-switch{ margin-top:1.25rem; padding-top:1.25rem; border-top:1px solid #e9ecef }
-
-/* ========= Colonne visuelle ========= */
-.sg-visual{
-  min-height:420px;
-  background-size:cover;
-  background-position:center;
+/* Layout principal */
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f8f9fa;
 }
 
-/* ========= Responsivité ========= */
-
-/* Tablette : logo un peu réduit */
-@media (max-width: 992px){
-  .sg-logo{ max-width:160px }
+.login-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 1000px;
+    width: 100%;
 }
 
-/* Mobile : on cache l’image, on centre tout, boutons 100% */
-@media (max-width: 767.98px){
-  .sg-visual{ display:none }            /* important pour centrer la carte et éviter la hauteur inutile */
-  .sg-card{ border-radius:12px }
-  .sg-form{ padding:20px 16px }
-  .sg-logo{ max-width:120px }
-  input,select,textarea{ font-size:16px } /* évite le zoom iOS */
+/* Sections */
+.form-section {
+    padding: 2.5rem;
 }
 
-/* Très petits écrans */
-@media (max-width: 479.98px){
-  .sg-form{ padding:16px 12px }
+.visual-section {
+    background: var(--gradient);
+    color: white;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.visual-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.7;
+    z-index: 0;
+}
+
+.visual-section > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Logo */
+.site-logo {
+    max-width: 200px;
+    height: auto;
+    margin: 0 auto 1.5rem;
+    display: block;
+}
+
+/* Titres */
+.page-title {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #333;
+    font-weight: 600;
+}
+
+/* Formulaires */
+.form-input {
+    border-radius: 10px;
+    border: 2px solid #e9ecef;
+    padding: 12px 15px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 0.2rem rgba(0, 74, 173, 0.25);
+}
+
+/* Boutons */
+.btn-primary-custom {
+    background: var(--gradient);
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+.btn-primary-custom:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 74, 173, 0.3);
+    color: white;
+}
+
+.back-home-btn {
+    background: transparent;
+    border: 2px solid var(--primary-blue);
+    color: var(--primary-blue);
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.back-home-btn:hover {
+    background: var(--primary-blue);
+    color: white;
+}
+
+/* Séparateur */
+.divider {
+    text-align: center;
+    margin: 1.5rem 0;
+    position: relative;
+}
+
+.divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #e9ecef;
+}
+
+.divider span {
+    background: white;
+    padding: 0 1rem;
+    color: #6c757d;
+    font-size: 14px;
+}
+
+/* Boutons sociaux */
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.google-btn {
+    background-color: #db4437;
+}
+
+/* Options du formulaire */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1.5rem 0;
+}
+
+.forgot-password {
+    color: var(--primary-purple);
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: var(--primary-blue);
+    text-decoration: underline;
+}
+
+/* Section visuelle */
+.feature-pin {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.top-left {
+    top: 20px;
+    left: 20px;
+}
+
+.top-right {
+    top: 20px;
+    right: 20px;
+    text-align: right;
+}
+
+.bottom-center {
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.feature-highlight {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.feature-text {
+    font-size: 0.9rem;
+}
+
+.feature-name {
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.feature-desc {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .form-section, .visual-section {
+        padding: 2rem;
+    }
+    
+    .site-logo {
+        max-width: 180px;
+    }
+    
+    .page-title {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .login-container {
+        padding: 0;
+        align-items: stretch;
+    }
+    
+    .login-card {
+        border-radius: 0;
+        box-shadow: none;
+    }
+    
+    .form-section {
+        padding: 2rem 1.5rem;
+    }
+    
+    .visual-section {
+        min-height: 250px;
+        order: -1;
+    }
+    
+    .site-logo {
+        max-width: 150px;
+    }
+    
+    .page-title {
+        font-size: 1.5rem;
+    }
+    
+    .form-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .back-home-btn {
+        align-self: center;
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .form-section {
+        padding: 1.5rem;
+    }
+    
+    .site-logo {
+        max-width: 130px;
+    }
+    
+    .page-title {
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .form-input {
+        padding: 10px 12px;
+        font-size: 15px;
+    }
+    
+    .btn-primary-custom {
+        padding: 10px 20px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 380px) {
+    .form-section {
+        padding: 1.2rem;
+    }
+    
+    .site-logo {
+        max-width: 110px;
+    }
+    
+    .page-title {
+        font-size: 1.3rem;
+    }
 }
