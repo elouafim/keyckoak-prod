@@ -172,10 +172,11 @@
         width: 100%;
         padding: 12px 16px;
         border: 2px solid var(--border-color);
-        border-radius: var(--border-radius);
+        border-radius: 10px;
         font-size: 1rem;
         transition: all 0.3s ease;
         background: #f8f9fa;
+        box-sizing: border-box;
     }
 
     .form-input:focus {
@@ -229,15 +230,16 @@
     .submit-btn {
         width: 100%;
         padding: 14px;
-        background: linear-gradient(45deg, var(--primary-color), #0099ff);
+        background: linear-gradient(45deg, #007bff, #0099ff);
         border: none;
-        border-radius: var(--border-radius);
+        border-radius: 10px;
         color: #fff;
         font-size: 1rem;
         font-weight: 600;
         cursor: pointer;
         transition: all 0.3s ease;
         margin-bottom: 20px;
+        box-sizing: border-box;
     }
 
     .submit-btn:hover {
@@ -282,23 +284,34 @@
 
     /* Responsive Design */
     @media (max-width: 768px) {
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
         .login-container {
             padding: 0;
             min-height: 100vh;
             width: 100vw;
             margin: 0;
+            position: relative;
         }
 
         .login-card {
-            padding: 30px 20px;
+            padding: 20px;
             margin: 0;
             max-width: 100%;
-            width: 100%;
+            width: 100vw;
             border-radius: 0;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            box-shadow: none;
+        }
+
+        .login-header {
+            margin-bottom: 25px;
         }
 
         .login-title {
@@ -310,12 +323,7 @@
         }
 
         .back-home {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            margin-bottom: 0;
-            padding: 8px 15px;
-            font-size: 0.85rem;
+            display: none; /* Caché sur mobile pour plus d'espace */
         }
 
         .form-options {
@@ -333,11 +341,52 @@
             height: 45px;
             font-size: 18px;
         }
+
+        /* Éléments flottants mobiles */
+        .floating-features {
+            display: block;
+        }
+
+        .floating-pill {
+            font-size: 0.75rem;
+            padding: 8px 14px;
+            border-radius: 25px;
+        }
+
+        .floating-pill i {
+            margin-right: 6px;
+            font-size: 0.8rem;
+        }
+
+        /* Repositionnement pour mobile */
+        .pill-1 {
+            top: 12%;
+            left: 5%;
+        }
+
+        .pill-2 {
+            top: 18%;
+            right: 8%;
+        }
+
+        .pill-3 {
+            bottom: 25%;
+            left: 3%;
+        }
+
+        .pill-4 {
+            bottom: 18%;
+            right: 5%;
+        }
+
+        .pill-5 {
+            display: none; /* Caché pour éviter l'encombrement */
+        }
     }
 
     @media (max-width: 480px) {
         .login-card {
-            padding: 25px 15px;
+            padding: 15px;
             width: 100vw;
         }
 
@@ -345,21 +394,36 @@
             font-size: 1.3rem;
         }
 
+        .login-subtitle {
+            font-size: 0.9rem;
+        }
+
         .form-input {
-            padding: 10px 14px;
-            font-size: 0.95rem;
+            padding: 12px 16px;
+            font-size: 1rem;
+            border-radius: 8px;
         }
 
         .submit-btn {
-            padding: 12px;
-            font-size: 0.95rem;
+            padding: 14px;
+            font-size: 1rem;
+            border-radius: 8px;
         }
 
-        .back-home {
+        .social-btn {
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            border-radius: 10px;
+        }
+
+        .floating-pill {
+            font-size: 0.7rem;
             padding: 6px 12px;
-            font-size: 0.8rem;
-            top: 10px;
-            left: 10px;
+        }
+
+        .floating-pill i {
+            font-size: 0.75rem;
         }
     }
 
@@ -461,7 +525,7 @@
     /* Masquer les pills sur mobile */
     @media (max-width: 768px) {
         .floating-features {
-            display: none;
+            display: block; /* Maintenant visible sur mobile */
         }
     }
 </style>
@@ -485,6 +549,10 @@
         <div class="floating-pill pill-4">
             <i class="fas fa-headset"></i>
             Support 24h/24
+        </div>
+        <div class="floating-pill pill-5">
+            <i class="fas fa-mobile-alt"></i>
+            Application mobile
         </div>
     </div>
 
