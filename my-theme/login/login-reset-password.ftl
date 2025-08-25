@@ -2,6 +2,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="${url.resourcesPath}/css/custom.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
 
 <style>
     /* Variables CSS */
@@ -15,6 +16,9 @@
         --shadow-hover: 0 8px 30px rgba(0,0,0,0.12);
     }
 
+    img, svg, video, canvas { max-width: 100%; height: auto; }
+body { -webkit-text-size-adjust: 100%; touch-action: manipulation; }
+
     body {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         min-height: 100vh;
@@ -27,10 +31,11 @@
     /* Container principal */
     .reset-container {
         min-height: 100vh;
-        display: flex;
+        display: grid;
         align-items: center;
         justify-content: center;
-        padding: 20px;
+        place-items: center;
+        padding: clamp(12px, 4vw, 24px);
         position: relative;
         width: 100%;
         box-sizing: border-box;
@@ -57,7 +62,7 @@
     /* Header */
     .reset-header {
         text-align: center;
-        margin-bottom: 30px;
+        margin-bottom: 14px !important;
     }
 
     .brand-logo {
@@ -70,13 +75,13 @@
         font-size: 1.8rem;
         font-weight: 600;
         color: #2c3e50;
-        margin: 0 0 10px 0;
+        margin: 0 0 6px 0 !important;
     }
 
     .reset-subtitle {
         color: var(--text-muted);
         font-size: 0.95rem;
-        margin: 0;
+        margin: 0 !important;
         line-height: 1.4;
     }
 
@@ -289,26 +294,32 @@
 
     /* Responsive Design */
     @media (max-width: 768px) {
-        body {
+        .body {
             margin: 0;
             padding: 0;
         }
 
         .reset-container {
-            padding: 0;
+            padding:
+                max(20px, env(safe-area-inset-top))
+                max(16px, env(safe-area-inset-right))
+                max(24px, env(safe-area-inset-bottom))
+                max(16px, env(safe-area-inset-left));
             min-height: 100vh;
-            width: 100vw;
+            width: 100%;           /* surtout pas 100vw */
             margin: 0;
+            display: grid;
+            place-items: center;
             position: relative;
         }
 
         .reset-card {
             padding: 20px;
             margin: 0;
-            max-width: 100%;
-            width: 100vw;
-            border-radius: 0;
-            min-height: 100vh;
+            max-width: 520px;
+            width: 100%;
+            border-radius: 16px;
+            min-height: auto;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -327,9 +338,9 @@
             font-size: 0.9rem;
         }
 
-        .brand-logo {
-            max-width: 150px;
-        }
+        .brand-logo{ max-width: 120px; margin-bottom: 10px; }
+        input, select, textarea{ font-size: 16px; }  /* empêche le zoom iOS */
+        
 
         .back-login {
             display: none; /* Caché sur mobile pour plus d'espace */
@@ -375,12 +386,12 @@
 
     @media (max-width: 480px) {
         .reset-card {
-            padding: 15px;
+            padding: 16px 14px;
             width: 100vw;
         }
 
         .reset-title {
-            font-size: 1.3rem;
+            font-size: 1.35rem;
         }
 
         .reset-subtitle {

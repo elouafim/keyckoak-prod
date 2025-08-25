@@ -2,6 +2,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="${url.resourcesPath}/css/custom.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
 
 <style>
     /* Variables CSS */
@@ -17,6 +18,9 @@
         --warning-color: #ffc107;
     }
 
+    img, svg, video, canvas { max-width: 100%; height: auto; }
+body { -webkit-text-size-adjust: 100%; touch-action: manipulation; }
+
     body {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         min-height: 100vh;
@@ -29,10 +33,11 @@
     /* Container principal */
     .update-container {
         min-height: 100vh;
-        display: flex;
+        display: grid;
+        place-items: center;
         align-items: center;
         justify-content: center;
-        padding: 20px;
+        padding: clamp(12px, 4vw, 24px);
         position: relative;
         width: 100%;
         box-sizing: border-box;
@@ -65,20 +70,20 @@
     .brand-logo {
         max-width: 180px;
         height: auto;
-        margin-bottom: 20px;
+        margin-bottom: 14px !important;
     }
 
     .update-title {
         font-size: 1.8rem;
         font-weight: 600;
         color: #2c3e50;
-        margin: 0 0 10px 0;
+        margin: 0 0 6px 0 !important;
     }
 
     .update-subtitle {
         color: var(--text-muted);
         font-size: 0.95rem;
-        margin: 0;
+        margin: 0 !important;
         line-height: 1.4;
     }
 
@@ -341,20 +346,26 @@
         }
 
         .update-container {
-            padding: 0;
+            padding:
+                max(20px, env(safe-area-inset-top))
+                max(16px, env(safe-area-inset-right))
+                max(24px, env(safe-area-inset-bottom))
+                max(16px, env(safe-area-inset-left));
             min-height: 100vh;
             width: 100vw;
             margin: 0;
             position: relative;
+            display: grid;
+            place-items: center;
         }
 
         .update-card {
-            padding: 20px;
+            padding: 20px 16px;
             margin: 0;
             max-width: 100%;
             width: 100vw;
-            border-radius: 0;
-            min-height: 100vh;
+            border-radius: 16px;
+            min-height: auto;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -374,8 +385,11 @@
         }
 
         .brand-logo {
-            max-width: 150px;
+            max-width: 120px;
+            margin-bottom: 10px;
+            input, select, textarea { font-size: 16px; } /* pas de zoom iOS au focus */
         }
+
 
         .back-login {
             display: none; /* Caché sur mobile pour plus d'espace */
@@ -421,12 +435,12 @@
 
     @media (max-width: 480px) {
         .update-card {
-            padding: 15px;
+            padding: 16px 14px;
             width: 100vw;
         }
 
         .update-title {
-            font-size: 1.3rem;
+            font-size: 1.35rem;
         }
 
         .update-subtitle {
