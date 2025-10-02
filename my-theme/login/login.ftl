@@ -593,7 +593,7 @@ body { -webkit-text-size-adjust: 100%; touch-action: manipulation; }
     </div>
 
     <div class="login-container">
-        <a href="https://sosgarage-production-967f.up.railway.app" class="back-home">
+        <a href="https://www.sos-mon-garage.com/" class="back-home">
             <i class="fas fa-arrow-left me-2"></i>Retour à l'accueil
         </a>
 
@@ -693,7 +693,7 @@ body { -webkit-text-size-adjust: 100%; touch-action: manipulation; }
             <!-- Lien d'inscription -->
             <div class="switch-form">
                 <span>Pas encore de compte ? </span>
-                <a href="https://sosgarage-production-967f.up.railway.app/register" class="link-btn">
+                <a href="https://www.sos-mon-garage.com//register" class="link-btn">
                     Créer un compte gratuitement
                 </a>
             </div>
