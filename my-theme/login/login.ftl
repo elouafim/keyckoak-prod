@@ -605,13 +605,22 @@ body { -webkit-text-size-adjust: 100%; touch-action: manipulation; }
                 <p class="login-subtitle">Connectez-vous à votre compte</p>
             </div>
 
-            <!-- Messages d'erreur -->
-            <#if message?has_content>
-                <div class="alert alert-${message.type}">
-                    <i class="fas fa-exclamation-triangle me-2"></i>
-                    ${kcSanitize(message.summary)?no_esc}
-                </div>
-            </#if>
+<#if message?has_content>
+    <div class="alert alert-${message.type}">
+        <i class="fas fa-exclamation-triangle me-2"></i>
+        <#-- Mapping manuel des messages -->
+        <#if message.summary == "Invalid username or password.">
+            Identifiant ou mot de passe incorrect.
+        <#elseif message.summary == "Account is disabled, contact admin.">
+            Votre compte est désactivé, contactez l’administrateur.
+        <#elseif message.summary == "Account is temporarily disabled, contact admin.">
+            Votre compte est temporairement bloqué, contactez l’administrateur.
+        <#else>
+            ${kcSanitize(message.summary)?no_esc}
+        </#if>
+    </div>
+</#if>
+
 
             <!-- Connexion sociale -->
             <#if social.providers??>
