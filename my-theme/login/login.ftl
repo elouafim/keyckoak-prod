@@ -652,6 +652,7 @@ body { -webkit-text-size-adjust: 100%; touch-action: manipulation; }
                             Se souvenir de moi
                         </label>
                     </div>
+                    
                     </#if>
                     
                     <#if realm.resetPasswordAllowed>
@@ -660,6 +661,7 @@ body { -webkit-text-size-adjust: 100%; touch-action: manipulation; }
                     </a>
                     </#if>
                 </div>
+                <input type="hidden" name="kc_locale" value="fr" />
 
                 <button type="submit" class="submit-btn" name="login">
                     <i class="fas fa-sign-in-alt me-2"></i>Se connecter
@@ -678,17 +680,7 @@ body { -webkit-text-size-adjust: 100%; touch-action: manipulation; }
 
     <!-- Scripts Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-  (function () {
-    var p = new URLSearchParams(window.location.search);
-    if (!p.has('kc_locale')) {
-      p.set('kc_locale', 'fr');
-      var url = new URL(window.location.href);
-      url.search = p.toString();
-      window.location.replace(url.toString());
-    }
-  })();
-</script>
+
 
 </#if>
 </@layout.registrationLayout>
