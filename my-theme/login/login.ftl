@@ -680,12 +680,6 @@ body { -webkit-text-size-adjust: 100%; touch-action: manipulation; }
 
     <!-- Scripts Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-  // Persiste FR pour les prochaines requêtes, sans rechargement
-  document.cookie = "KEYCLOAK_LOCALE=fr; path=/; max-age=31536000";
-  document.cookie = "KC_LOCALE=fr; path=/; max-age=31536000";
-</script>
-
 
 
 </#if>
