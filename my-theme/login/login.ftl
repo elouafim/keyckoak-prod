@@ -1,4 +1,13 @@
 <#import "template.ftl" as layout>
+<#-- place ceci tout en haut du fichier, après l'import, pour qu'il aille dans le <head> -->
+<#macro scripts>
+  <script>
+    // Force FR pour 1 an, sans recharger la page
+    document.cookie = "KEYCLOAK_LOCALE=fr; path=/; max-age=31536000; SameSite=Lax";
+    document.cookie = "KC_LOCALE=fr; path=/; max-age=31536000; SameSite=Lax";
+  </script>
+</#macro>
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="${url.resourcesPath}/login.css">
 <link rel="stylesheet" href="${url.resourcesPath}/css/custom.css">
@@ -682,6 +691,7 @@ body { -webkit-text-size-adjust: 100%; touch-action: manipulation; }
 
     <!-- Scripts Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
 
 
 </#if>
