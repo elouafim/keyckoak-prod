@@ -615,6 +615,8 @@ body { -webkit-text-size-adjust: 100%; touch-action: manipulation; }
             Votre compte est désactivé, contactez l’administrateur.
         <#elseif message.summary == "Account is temporarily disabled, contact admin.">
             Votre compte est temporairement bloqué, contactez l’administrateur.
+        <#elseif message.summary == "Your login attempt timed out. Login will start from the beginning.">
+            Votre tentative de connexion a expiré. Veuillez réessayer.
         <#else>
             ${kcSanitize(message.summary)?no_esc}
         </#if>
