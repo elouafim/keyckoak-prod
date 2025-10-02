@@ -9,6 +9,12 @@
     --success-color: #28a745;
     --error-color: #dc3545;
 }
+/* Masquer les messages d'erreurs du header par défaut */
+#kc-feedback, 
+#kc-header-wrapper .alert, 
+#kc-content-wrapper > .alert {
+    display: none !important;
+}
 
 /* Import Font Awesome */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
