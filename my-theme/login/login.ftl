@@ -621,7 +621,7 @@ body { -webkit-text-size-adjust: 100%; touch-action: manipulation; }
             </#if>
 
             <!-- Formulaire de connexion -->
-            <form id="kc-form-login" action="${url.loginAction}?ui_locales=fr&kc_locale=fr" method="post">
+            <form id="kc-form-login" action="${url.loginAction}" method="post">
                 <div class="form-group">
                     <input type="text" 
                            class="form-input" 
