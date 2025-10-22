@@ -1,8 +1,8 @@
 FROM quay.io/keycloak/keycloak:26.2.4
 
 # Configuration de l'administrateur initial
-ENV KC_BOOTSTRAP_ADMIN_USERNAME=admin1
-ENV KC_BOOTSTRAP_ADMIN_PASSWORD=admin1
+ENV KC_BOOTSTRAP_ADMIN_USERNAME=admin
+ENV KC_BOOTSTRAP_ADMIN_PASSWORD=admin
 
 # Configuration du proxy et de l'hôte
 ENV KC_PROXY=edge
